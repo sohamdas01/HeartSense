@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pandas
+joblib
+# must match the version the pickles were saved with
+scikit-learn==1.6.1

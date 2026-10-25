@@ -1,0 +1,7 @@
+frontend
+**/__pycache__
+.git
+.venv
+ml/*.ipynb
+ml/heart.csv
+.claude
