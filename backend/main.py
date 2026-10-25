@@ -22,8 +22,12 @@ app = FastAPI(title="Heart Disease Prediction API")
 app.add_middleware(
     CORSMiddleware,
     # Extra origins (e.g. a separately hosted frontend) via CORS_ORIGINS="https://a.com,https://b.com"
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"]
-    + [o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "https://heart-sense-ten.vercel.app",  # production frontend
+    ]
+    + [o.strip().rstrip("/") for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()],
     allow_methods=["*"],
     allow_headers=["*"],
 )
